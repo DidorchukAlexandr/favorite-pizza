@@ -23,7 +23,7 @@ const totalCount = items.reduce((sum, item) => sum + item.count, 0)
         <Search />
         <div className="header__cart">
           <Link to="/cart" className="button button--cart">
-            <span>{totalPrice} UAH</span>
+            <span>{totalPrice} $</span>
             <div className="button__delimiter"></div>
             <svg
               width="18"
