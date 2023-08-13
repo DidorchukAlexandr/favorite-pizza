@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/favorite-pizza/static/css/main.62d5b7b2.css",
+    "main.js": "/favorite-pizza/static/js/main.fbd67b9e.js",
+    "static/media/empty-cart.png": "/favorite-pizza/static/media/empty-cart.db905d1f4b063162f25b.png",
+    "index.html": "/favorite-pizza/index.html",
+    "main.62d5b7b2.css.map": "/favorite-pizza/static/css/main.62d5b7b2.css.map",
+    "main.fbd67b9e.js.map": "/favorite-pizza/static/js/main.fbd67b9e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.62d5b7b2.css",
+    "static/js/main.fbd67b9e.js"
+  ]
+}
