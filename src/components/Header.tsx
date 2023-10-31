@@ -1,12 +1,24 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-
+import { selectCart } from '../redux/cart/selectors';
 import logoPng from '../assets/img/logo.png'
-import Search from './Search';
+import { Search } from './Search';
+import { useEffect, useRef } from 'react';
 
-function Header() {
-const {items, totalPrice} = useSelector((state) => state.cart)
-const totalCount = items.reduce((sum, item) => sum + item.count, 0) 
+export const Header: React.FC = () => {
+  const { items, totalPrice } = useSelector(selectCart);
+  const location = useLocation();
+  const isMounted = useRef(false);
+
+const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0) 
+  
+  useEffect(() => {
+    if (isMounted.current) {
+      const json = JSON.stringify(items);
+      localStorage.setItem('cart', json);
+    }
+    isMounted.current = true;
+  }, [items]);
   
   return (
     <div className="header">
@@ -20,9 +32,9 @@ const totalCount = items.reduce((sum, item) => sum + item.count, 0)
             </div>
           </div>
         </Link>
-        <Search />
+        {location.pathname !== '/cart' && <Search />}
         <div className="header__cart">
-          <Link to="/cart" className="button button--cart">
+          {location.pathname !== '/cart' && (<Link to="/cart" className="button button--cart">
             <span>{totalPrice} $</span>
             <div className="button__delimiter"></div>
             <svg
@@ -55,11 +67,10 @@ const totalCount = items.reduce((sum, item) => sum + item.count, 0)
               />
             </svg>
             <span>{totalCount}</span>
-          </Link>
+          </Link>)}
         </div>
       </div>
     </div>
   );
 }
 
-export default Header;

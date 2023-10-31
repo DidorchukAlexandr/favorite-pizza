@@ -1,7 +1,7 @@
 import styles from './NotFoundBlock.module.scss';
-console.log(styles);
 
-const NotFoundBlock = () => {
+
+export const NotFoundBlock: React.FC = () => {
     return (
         <>
             <h1 className={styles.root}>
@@ -9,7 +9,6 @@ const NotFoundBlock = () => {
                 <br />
                 Nothing found
             </h1>
-    </>
-    )
-}
-export default NotFoundBlock;
+        </>
+    );
+};
